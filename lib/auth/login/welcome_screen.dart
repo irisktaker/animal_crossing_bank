@@ -1,7 +1,9 @@
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
-import 'package:animal_crossing_bank/login/create.dart';
-import 'package:animal_crossing_bank/login/login_screen.dart';
+
 import 'package:flutter/material.dart';
+
+import 'create.dart';
+import 'login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);

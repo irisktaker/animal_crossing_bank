@@ -1,6 +1,8 @@
-import 'package:animal_crossing_bank/login/welcome_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'auth/login/welcome_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(

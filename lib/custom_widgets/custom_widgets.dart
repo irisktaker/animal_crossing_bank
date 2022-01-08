@@ -105,7 +105,6 @@ TextFormField buildTextFormField({
         borderSide: BorderSide.none,
       ),
       focusColor: const Color(0xFF037F76),
-
       fillColor: const Color(0xFFFFF9E6),
       filled: true,
       hintText: hint,
