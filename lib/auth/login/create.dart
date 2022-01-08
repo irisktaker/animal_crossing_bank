@@ -1,3 +1,4 @@
+import 'package:animal_crossing_bank/auth/create_account/create_user_profile.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -49,7 +50,12 @@ class CreateScreen extends StatelessWidget {
                       text: 'create'.toUpperCase(),
                       btnColor: const Color(0xFFAA6E29),
                       textColor: const Color(0xFFFFFFFF),
-                      press: (){},
+                      press: (){
+                        Navigator.pushReplacement(context,
+                        MaterialPageRoute(
+                            builder: (context) => const CreateUserprofile()),
+                        );
+                      },
                     ),
                     const SizedBox(height: 5),
                     buildMainBtn(

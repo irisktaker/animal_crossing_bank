@@ -21,6 +21,22 @@ Stack baseBackgroundImage (Size size) {
     ],
   );
 }
+Stack baseBackgroundImage2 (Size size) {
+  return Stack(
+    children: [
+      Image.asset(
+        'assets/images/rectangle_green.png',
+        width: size.width,
+        fit: BoxFit.cover,
+      ),
+      Image.asset(
+        'assets/images/artboard.png',
+        width: size.width,
+        fit: BoxFit.cover,
+      ),
+    ],
+  );
+}
 
 Text buildHeadTitle({String? text, double? size = 43.45}) {
   return Text(
@@ -94,6 +110,7 @@ TextFormField buildTextFormField({
   bool? obscure = false,
   TextEditingController? controller,
   TextInputType? keyboardType,
+  Widget? suffixIcon,
 }) {
   return TextFormField(
     controller: controller,
@@ -107,6 +124,7 @@ TextFormField buildTextFormField({
       focusColor: const Color(0xFF037F76),
       fillColor: const Color(0xFFFFF9E6),
       filled: true,
+      suffixIcon: suffixIcon,
       hintText: hint,
       hintStyle: const TextStyle(
         color: Color(0xFF037F76),
