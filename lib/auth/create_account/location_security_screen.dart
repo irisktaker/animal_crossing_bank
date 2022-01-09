@@ -1,3 +1,4 @@
+import 'package:animal_crossing_bank/auth/confirmation%20/confirmation.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -101,7 +102,7 @@ class LocationAndSecurityScreen extends StatelessWidget {
                             hint: 'Street address',
                             keyboardType: TextInputType.text,
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 18),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -125,7 +126,7 @@ class LocationAndSecurityScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 18),
                           buildTextFormField(
                             hint: 'State',
                             keyboardType: TextInputType.streetAddress,
@@ -180,7 +181,7 @@ class LocationAndSecurityScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 20),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -203,7 +204,7 @@ class LocationAndSecurityScreen extends StatelessWidget {
                                 press: () {
                                   Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => const LocationAndSecurityScreen())
+                                      MaterialPageRoute(builder: (context) => const ConfirmationScreen())
                                   );
                                 },
                                 minimumSize: const Size(124, 38),

@@ -6,17 +6,17 @@ Stack baseBackgroundImage (Size size) {
       Image.asset(
         'assets/images/rectangle_green.png',
         width: size.width,
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
       ),
       Image.asset(
         'assets/images/artboard.png',
         width: size.width,
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
       ),
       Image.asset(
         'assets/images/rectangle.png',
         width: size.width,
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
       ),
     ],
   );
@@ -27,18 +27,22 @@ Stack baseBackgroundImage2 (Size size) {
       Image.asset(
         'assets/images/rectangle_green.png',
         width: size.width,
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
       ),
       Image.asset(
         'assets/images/artboard.png',
         width: size.width,
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
       ),
     ],
   );
 }
 
-Text buildHeadTitle({String? text, double? size = 43.45}) {
+Text buildHeadTitle({
+  required String? text,
+  double? size = 43.45,
+  Color? color = const Color(0xFFFFF8E2),
+}) {
   return Text(
     text!,
     textAlign: TextAlign.center,
@@ -46,15 +50,17 @@ Text buildHeadTitle({String? text, double? size = 43.45}) {
       fontFamily: 'FinkHeavy Regular',
       fontSize: size,
       fontWeight: FontWeight.w400,
-      color: const Color(0xFFFFF8E2),
+      color: color,
     ),
   );
 }
 
-Divider buildDivider() {
-  return const Divider(
+Divider buildDivider({
+  Color? color = const Color(0xFFFFF8E2),
+}) {
+  return Divider(
     thickness: 3,
-    color: Color(0xFFFFF8E2),
+    color: color,
   );
 }
 
@@ -133,6 +139,46 @@ TextFormField buildTextFormField({
       hintStyle: TextStyle(
         color: const Color(0xFF037F76),
         fontSize: fontSize,
+      ),
+    ),
+  );
+}
+
+TextField buildTextField({
+  TextEditingController? controller,
+  required String? text,
+  required TextInputType? type,
+  Widget? suffixIcon,
+  bool? obscureText = false,
+
+}) {
+  return TextField(
+    controller: controller,
+    obscureText: obscureText!,
+    keyboardType: type,
+    style: const TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+    ),
+    decoration: InputDecoration(
+      enabled: true,
+      enabledBorder:  const UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFF037F76),
+          width: 3.0,
+        ),
+      ),
+      focusedBorder: const UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFF037F76),
+          width: 3.0,
+        ),
+      ),
+      suffixIcon: suffixIcon,
+      hintText: text,
+      hintStyle: const TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w900,
       ),
     ),
   );
