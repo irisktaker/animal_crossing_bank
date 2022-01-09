@@ -1,10 +1,8 @@
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'location_security_screen.dart';
-
-class CreateUserprofile extends StatelessWidget {
-  const CreateUserprofile({Key? key}) : super(key: key);
+class LocationAndSecurityScreen extends StatelessWidget {
+  const LocationAndSecurityScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +42,40 @@ class CreateUserprofile extends StatelessWidget {
                         ),
                         Container(
                           width: 2,
-                          height: 500,
+                          height: 185,
+                          color: Colors.black,
+                        ),
+                        Transform.rotate(
+                          angle: 40,
+                          child: Container(
+                            width: 10,
+                            height: 10,
+                            color: Colors.black,
+                          ),
+                        ),
+                        const SizedBox(height: 35),
+                        const SizedBox(
+                          width: 50,
+                          child: CircleAvatar(
+                            radius: 21.5,
+                            backgroundColor: Color(0xFF037F76),
+                            backgroundImage: AssetImage(
+                              'assets/images/user_profile_picture.png',
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Transform.rotate(
+                          angle: 40,
+                          child: Container(
+                            width: 10,
+                            height: 10,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Container(
+                          width: 2,
+                          height: 135,
                           color: Colors.black,
                         ),
                         Transform.rotate(
@@ -64,20 +95,76 @@ class CreateUserprofile extends StatelessWidget {
                         children: [
                           buildHeadTitle(text: 'User\nInformation', size: 33),
                           buildDivider(),
-                          buildHeadTitle(text: 'User Profile', size: 33),
-                          const SizedBox(height: 10),
-                          const CircleAvatar(
-                            radius: 40,
-                            backgroundColor: Color(0xFF037F76),
-                            backgroundImage: AssetImage(
-                                'assets/images/user_profile_picture.png'),
+                          buildHeadTitle(text: 'Location', size: 33),
+                          const SizedBox(height: 20),
+                          buildTextFormField(
+                            hint: 'Street address',
+                            keyboardType: TextInputType.text,
                           ),
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: buildTextFormField(
+                                  hint: 'City ',
+                                  keyboardType: TextInputType.streetAddress,
+                                  widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 8.0, 20.0, 8.0),
+                                  suffixIcon: const Icon(Icons.arrow_drop_down, color: Color(0xFF037F76),),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                flex: 2,
+                                child: buildTextFormField(
+                                  hint: 'Zip Code',
+                                  keyboardType: TextInputType.number,
+                                  widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          buildTextFormField(
+                            hint: 'State',
+                            keyboardType: TextInputType.streetAddress,
+                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                            suffixIcon: const Icon(Icons.arrow_drop_down, color: Color(0xFF037F76),),
+                          ),
+                          const SizedBox(height: 25),
+                          buildHeadTitle(text: 'Security Information', size: 30),
+                          const SizedBox(height: 20),
+                          buildTextFormField(
+                            hint: 'Social Security number',
+                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                            keyboardType: TextInputType.number,
+                            obscure: true,
+                            suffixIcon: const Icon(
+                              Icons.visibility,
+                              color: Colors.black,
+                              size: 16,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          buildTextFormField(
+                            hint: 'State ID/ License number',
+                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                            keyboardType: TextInputType.number,
+                            obscure: true,
+                            suffixIcon: const Icon(
+                              Icons.visibility,
+                              color: Colors.black,
+                              size: 16,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               TextButton(
                                 onPressed: (){},
-                                child: const Text('Upload Photo',
+                                child: const Text('Photoscan State ID/ License',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.white,
@@ -93,48 +180,7 @@ class CreateUserprofile extends StatelessWidget {
                               ),
                             ],
                           ),
-                          buildTextFormField(
-                            hint: 'Full Name',
-                            keyboardType: TextInputType.text,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
-                          ),
-                          const SizedBox(height: 10),
-                          buildTextFormField(
-                            hint: 'Phone Number',
-                            keyboardType: TextInputType.number,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
-                          ),
-                          const SizedBox(height: 10),
-                          buildTextFormField(
-                            hint: 'Email',
-                            keyboardType: TextInputType.emailAddress,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
-                          ),
-                          const SizedBox(height: 10),
-                          buildTextFormField(
-                            hint: 'Password',
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
-                            keyboardType: TextInputType.visiblePassword,
-                            obscure: true,
-                            suffixIcon: const Icon(
-                              Icons.visibility,
-                              color: Colors.black,
-                              size: 16,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          buildTextFormField(
-                            hint: 'Confirm Password',
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
-                            keyboardType: TextInputType.visiblePassword,
-                            obscure: true,
-                            suffixIcon: const Icon(
-                              Icons.visibility,
-                              color: Colors.black,
-                              size: 16,
-                            ),
-                          ),
-                          const SizedBox(height: 60),
+                          const SizedBox(height: 30),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -156,8 +202,8 @@ class CreateUserprofile extends StatelessWidget {
                                 textColor: const Color(0xFFFFFFFF),
                                 press: () {
                                   Navigator.push(
-                                    context, 
-                                    MaterialPageRoute(builder: (context) => const LocationAndSecurityScreen())
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const LocationAndSecurityScreen())
                                   );
                                 },
                                 minimumSize: const Size(124, 38),

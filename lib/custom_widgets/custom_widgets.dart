@@ -111,23 +111,28 @@ TextFormField buildTextFormField({
   TextEditingController? controller,
   TextInputType? keyboardType,
   Widget? suffixIcon,
+  EdgeInsetsGeometry? widthHeightPadding = const EdgeInsets.fromLTRB(13.0, 23.0, 20.0, 23.0),
+  double? fontSize = 16.0,
 }) {
   return TextFormField(
     controller: controller,
     keyboardType: keyboardType,
     obscureText: obscure!,
+
     decoration: InputDecoration(
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
         borderSide: BorderSide.none,
       ),
+      contentPadding: widthHeightPadding,
       focusColor: const Color(0xFF037F76),
       fillColor: const Color(0xFFFFF9E6),
       filled: true,
       suffixIcon: suffixIcon,
       hintText: hint,
-      hintStyle: const TextStyle(
-        color: Color(0xFF037F76),
+      hintStyle: TextStyle(
+        color: const Color(0xFF037F76),
+        fontSize: fontSize,
       ),
     ),
   );
