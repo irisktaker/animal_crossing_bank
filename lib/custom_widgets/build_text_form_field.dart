@@ -4,6 +4,7 @@ TextFormField buildTextFormField({
   required String? hint,
   bool? obscure = false,
   TextEditingController? controller,
+  String? Function(String?)? validator,
   TextInputType? keyboardType,
   Widget? suffixIcon,
   EdgeInsetsGeometry? widthHeightPadding =
@@ -14,7 +15,7 @@ TextFormField buildTextFormField({
     controller: controller,
     keyboardType: keyboardType,
     obscureText: obscure!,
-    // validator: ,
+    validator: validator,
     style: const TextStyle(
       color: Color(0xFF037F76),
     ),

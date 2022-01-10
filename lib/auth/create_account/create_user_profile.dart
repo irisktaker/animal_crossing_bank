@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 
 import 'location_security_screen.dart';
 
+import 'package:form_field_validator/form_field_validator.dart';
+
+// https://dev.to/adityasubrahmanyabhat/flutter-textformfield-validation-made-easy-3e61
+
 class CreateUserProfile extends StatefulWidget {
   const CreateUserProfile({Key? key}) : super(key: key);
 
@@ -13,6 +17,13 @@ class CreateUserProfile extends StatefulWidget {
 }
 
 class _CreateUserProfileState extends State<CreateUserProfile> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _configPassController = TextEditingController();
+
   bool _isPassHidden = true;
   bool _isConfPassHidden = true;
 
@@ -69,144 +80,211 @@ class _CreateUserProfileState extends State<CreateUserProfile> {
                     ),
                     const SizedBox(width: 20),
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          buildHeadTitle(text: 'User\nInformation', size: 33),
-                          buildDivider(),
-                          buildHeadTitle(text: 'User Profile', size: 33),
-                          const SizedBox(height: 10),
-                          const CircleAvatar(
-                            radius: 40,
-                            backgroundColor: Color(0xFF037F76),
-                            backgroundImage: AssetImage(
-                                'assets/images/user_profile_picture.png'),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  'Upload Photo',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                    fontFamily: 'Bolt Regular',
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            buildHeadTitle(text: 'User\nInformation', size: 33),
+                            buildDivider(),
+                            buildHeadTitle(text: 'User Profile', size: 33),
+                            const SizedBox(height: 10),
+                            const CircleAvatar(
+                              radius: 40,
+                              backgroundColor: Color(0xFF037F76),
+                              backgroundImage: AssetImage(
+                                  'assets/images/user_profile_picture.png'),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TextButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Upload Photo',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontFamily: 'Bolt Regular',
+                                    ),
                                   ),
                                 ),
-                              ),
-                              InkWell(
-                                onTap: () {},
-                                child: const Icon(
-                                  Icons.camera_alt,
+                                InkWell(
+                                  onTap: () {},
+                                  child: const Icon(
+                                    Icons.camera_alt,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          buildTextFormField(
-                            hint: 'Full Name',
-                            keyboardType: TextInputType.text,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(
-                                13.0, 10.0, 20.0, 10.0),
-                          ),
-                          const SizedBox(height: 10),
-                          buildTextFormField(
-                            hint: 'Phone Number',
-                            keyboardType: TextInputType.number,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(
-                                13.0, 10.0, 20.0, 10.0),
-                          ),
-                          const SizedBox(height: 10),
-                          buildTextFormField(
-                            hint: 'Email',
-                            keyboardType: TextInputType.emailAddress,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(
-                                13.0, 10.0, 20.0, 10.0),
-                          ),
-                          const SizedBox(height: 10),
-                          buildTextFormField(
-                            hint: 'Password',
-                            widthHeightPadding: const EdgeInsets.fromLTRB(
-                                13.0, 10.0, 20.0, 10.0),
-                            keyboardType: TextInputType.visiblePassword,
-                            obscure: _isPassHidden,
-                            suffixIcon: IconButton(
-                              onPressed: () => setState(
-                                () => _isPassHidden = !_isPassHidden,
-                              ),
-                              icon: _isPassHidden
-                                  ? const Icon(
-                                      Icons.visibility,
-                                      color: Colors.black,
-                                      size: 16,
-                                    )
-                                  : const Icon(
-                                      Icons.visibility_off,
-                                      color: Colors.black,
-                                      size: 16,
-                                    ),
+                              ],
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          buildTextFormField(
-                            hint: 'Confirm Password',
-                            widthHeightPadding: const EdgeInsets.fromLTRB(
-                                13.0, 10.0, 20.0, 10.0),
-                            keyboardType: TextInputType.visiblePassword,
-                            obscure: _isConfPassHidden,
-                            suffixIcon: IconButton(
-                              onPressed: () => setState(
-                                () => _isConfPassHidden = !_isConfPassHidden,
+                            buildTextFormField(
+                              controller: _fullNameController,
+                              // The RequiredValidator takes in a single argument of type String for the errorText property and makes sure that the input field isn't empty .
+                              // If it is empty , it displays the errorText specified.
+                              validator:
+                                  RequiredValidator(errorText: "Required"),
+                              hint: 'Full Name',
+                              keyboardType: TextInputType.text,
+                              widthHeightPadding: const EdgeInsets.fromLTRB(
+                                13.0,
+                                10.0,
+                                20.0,
+                                10.0,
                               ),
-                              icon: _isConfPassHidden
-                                  ? const Icon(
-                                      Icons.visibility,
-                                      color: Colors.black,
-                                      size: 16,
-                                    )
-                                  : const Icon(
-                                      Icons.visibility_off,
-                                      color: Colors.black,
-                                      size: 16,
-                                    ),
                             ),
-                          ),
-                          const SizedBox(height: 60),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              buildMainBtn(
-                                text: 'go back'.toUpperCase(),
-                                btnColor: const Color(0xFF037F76),
-                                textColor: const Color(0xFFFFFFFF),
-                                press: () {
-                                  Navigator.pop(context);
-                                },
-                                minimumSize: const Size(124, 38),
-                                fontSize: 14,
-                                padding: const EdgeInsets.all(0),
-                                fontWeight: FontWeight.normal,
+                            const SizedBox(height: 10),
+                            buildTextFormField(
+                              controller: _phoneNumberController,
+                              hint: 'Phone Number',
+                              keyboardType: TextInputType.number,
+                              widthHeightPadding: const EdgeInsets.fromLTRB(
+                                  13.0, 10.0, 20.0, 10.0),
+                            ),
+                            const SizedBox(height: 10),
+                            buildTextFormField(
+                              controller: _emailController,
+                              // MultiValidator takes a list of validators as arguments.
+                              validator: MultiValidator(
+                                [
+                                  RequiredValidator(errorText: "Required"),
+                                  EmailValidator(
+                                      errorText:
+                                          "Please enter a valid email address"),
+                                ],
                               ),
-                              buildMainBtn(
-                                text: 'continue'.toUpperCase(),
-                                btnColor: const Color(0xFFAA6E29),
-                                textColor: const Color(0xFFFFFFFF),
-                                press: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
+                              hint: 'Email',
+                              keyboardType: TextInputType.emailAddress,
+                              widthHeightPadding: const EdgeInsets.fromLTRB(
+                                  13.0, 10.0, 20.0, 10.0),
+                            ),
+                            const SizedBox(height: 10),
+                            buildTextFormField(
+                              controller: _passwordController,
+                              validator: MultiValidator(
+                                [
+                                  RequiredValidator(errorText: "Required"),
+                                  MinLengthValidator(6,
+                                      errorText:
+                                          "Password must contain at least 6 characters"),
+                                  MaxLengthValidator(15,
+                                      errorText:
+                                          "Password cannot be more 15 characters"),
+                                  PatternValidator(r'(?=.*?[#?!@$%^&*-])',
+                                      errorText:
+                                          "Password must have at least one special character"),
+                                ],
+                              ),
+                              hint: 'Password',
+                              widthHeightPadding: const EdgeInsets.fromLTRB(
+                                  13.0, 10.0, 20.0, 10.0),
+                              keyboardType: TextInputType.visiblePassword,
+                              obscure: _isPassHidden,
+                              suffixIcon: IconButton(
+                                onPressed: () => setState(
+                                  () => _isPassHidden = !_isPassHidden,
+                                ),
+                                icon: _isPassHidden
+                                    ? const Icon(
+                                        Icons.visibility,
+                                        color: Colors.black,
+                                        size: 16,
+                                      )
+                                    : const Icon(
+                                        Icons.visibility_off,
+                                        color: Colors.black,
+                                        size: 16,
+                                      ),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            buildTextFormField(
+                              controller: _configPassController,
+                              validator: (val) {
+                                if (val!.isEmpty) {
+                                  return "Required";
+                                }
+                                return MatchValidator(
+                                        errorText: "Passwords don't match")
+                                    .validateMatch(
+                                  val,
+                                  _passwordController.text,
+                                );
+                              },
+                              hint: 'Confirm Password',
+                              widthHeightPadding: const EdgeInsets.fromLTRB(
+                                  13.0, 10.0, 20.0, 10.0),
+                              keyboardType: TextInputType.visiblePassword,
+                              obscure: _isConfPassHidden,
+                              suffixIcon: IconButton(
+                                onPressed: () => setState(
+                                  () => _isConfPassHidden = !_isConfPassHidden,
+                                ),
+                                icon: _isConfPassHidden
+                                    ? const Icon(
+                                        Icons.visibility,
+                                        color: Colors.black,
+                                        size: 16,
+                                      )
+                                    : const Icon(
+                                        Icons.visibility_off,
+                                        color: Colors.black,
+                                        size: 16,
+                                      ),
+                              ),
+                            ),
+                            const SizedBox(height: 60),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                buildMainBtn(
+                                  text: 'go back'.toUpperCase(),
+                                  btnColor: const Color(0xFF037F76),
+                                  textColor: const Color(0xFFFFFFFF),
+                                  press: () {
+                                    Navigator.pop(context);
+                                  },
+                                  minimumSize: const Size(124, 38),
+                                  fontSize: 14,
+                                  padding: const EdgeInsets.all(0),
+                                  fontWeight: FontWeight.normal,
+                                ),
+                                buildMainBtn(
+                                  text: 'continue'.toUpperCase(),
+                                  btnColor: const Color(0xFFAA6E29),
+                                  textColor: const Color(0xFFFFFFFF),
+                                  press: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                          backgroundColor: Colors.white,
+                                          content: Text(
+                                            'Validation Successful',
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
                                           builder: (context) =>
-                                              const LocationAndSecurityScreen()));
-                                },
-                                minimumSize: const Size(124, 38),
-                                fontSize: 14,
-                                padding: const EdgeInsets.all(0),
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ],
-                          ),
-                        ],
+                                              const LocationAndSecurityScreen(),
+                                        ),
+                                      );
+                                    }
+                                  },
+                                  minimumSize: const Size(124, 38),
+                                  fontSize: 14,
+                                  padding: const EdgeInsets.all(0),
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
