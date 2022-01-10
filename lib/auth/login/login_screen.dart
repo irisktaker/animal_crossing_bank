@@ -1,3 +1,6 @@
+import 'package:animal_crossing_bank/custom_widgets/build_main_btn.dart';
+import 'package:animal_crossing_bank/custom_widgets/build_text_button.dart';
+import 'package:animal_crossing_bank/custom_widgets/build_text_form_field.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -49,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                       text: 'login'.toUpperCase(),
                       btnColor: const Color(0xFFAA6E29),
                       textColor: const Color(0xFFFFFFFF),
-                      press: (){},
+                      press: () {},
                     ),
                     const SizedBox(height: 5),
                     buildMainBtn(

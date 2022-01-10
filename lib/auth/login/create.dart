@@ -1,4 +1,7 @@
 import 'package:animal_crossing_bank/auth/create_account/create_user_profile.dart';
+import 'package:animal_crossing_bank/custom_widgets/build_main_btn.dart';
+import 'package:animal_crossing_bank/custom_widgets/build_text_button.dart';
+import 'package:animal_crossing_bank/custom_widgets/build_text_form_field.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +56,7 @@ class CreateScreen extends StatelessWidget {
                       press: (){
                         Navigator.pushReplacement(context,
                         MaterialPageRoute(
-                            builder: (context) => const CreateUserprofile()),
+                            builder: (context) => const CreateUserProfile()),
                         );
                       },
                     ),

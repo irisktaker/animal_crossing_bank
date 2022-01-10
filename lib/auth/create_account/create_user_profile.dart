@@ -1,10 +1,20 @@
+import 'package:animal_crossing_bank/custom_widgets/build_main_btn.dart';
+import 'package:animal_crossing_bank/custom_widgets/build_text_form_field.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'location_security_screen.dart';
 
-class CreateUserprofile extends StatelessWidget {
-  const CreateUserprofile({Key? key}) : super(key: key);
+class CreateUserProfile extends StatefulWidget {
+  const CreateUserProfile({Key? key}) : super(key: key);
+
+  @override
+  State<CreateUserProfile> createState() => _CreateUserProfileState();
+}
+
+class _CreateUserProfileState extends State<CreateUserProfile> {
+  bool _isPassHidden = true;
+  bool _isConfPassHidden = true;
 
   @override
   Widget build(BuildContext context) {
@@ -76,8 +86,9 @@ class CreateUserprofile extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               TextButton(
-                                onPressed: (){},
-                                child: const Text('Upload Photo',
+                                onPressed: () {},
+                                child: const Text(
+                                  'Upload Photo',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.white,
@@ -86,7 +97,7 @@ class CreateUserprofile extends StatelessWidget {
                                 ),
                               ),
                               InkWell(
-                                onTap: (){},
+                                onTap: () {},
                                 child: const Icon(
                                   Icons.camera_alt,
                                 ),
@@ -96,42 +107,69 @@ class CreateUserprofile extends StatelessWidget {
                           buildTextFormField(
                             hint: 'Full Name',
                             keyboardType: TextInputType.text,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                            widthHeightPadding: const EdgeInsets.fromLTRB(
+                                13.0, 10.0, 20.0, 10.0),
                           ),
                           const SizedBox(height: 10),
                           buildTextFormField(
                             hint: 'Phone Number',
                             keyboardType: TextInputType.number,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                            widthHeightPadding: const EdgeInsets.fromLTRB(
+                                13.0, 10.0, 20.0, 10.0),
                           ),
                           const SizedBox(height: 10),
                           buildTextFormField(
                             hint: 'Email',
                             keyboardType: TextInputType.emailAddress,
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                            widthHeightPadding: const EdgeInsets.fromLTRB(
+                                13.0, 10.0, 20.0, 10.0),
                           ),
                           const SizedBox(height: 10),
                           buildTextFormField(
                             hint: 'Password',
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                            widthHeightPadding: const EdgeInsets.fromLTRB(
+                                13.0, 10.0, 20.0, 10.0),
                             keyboardType: TextInputType.visiblePassword,
-                            obscure: true,
-                            suffixIcon: const Icon(
-                              Icons.visibility,
-                              color: Colors.black,
-                              size: 16,
+                            obscure: _isPassHidden,
+                            suffixIcon: IconButton(
+                              onPressed: () => setState(
+                                () => _isPassHidden = !_isPassHidden,
+                              ),
+                              icon: _isPassHidden
+                                  ? const Icon(
+                                      Icons.visibility,
+                                      color: Colors.black,
+                                      size: 16,
+                                    )
+                                  : const Icon(
+                                      Icons.visibility_off,
+                                      color: Colors.black,
+                                      size: 16,
+                                    ),
                             ),
                           ),
                           const SizedBox(height: 10),
                           buildTextFormField(
                             hint: 'Confirm Password',
-                            widthHeightPadding: const EdgeInsets.fromLTRB(13.0, 10.0, 20.0, 10.0),
+                            widthHeightPadding: const EdgeInsets.fromLTRB(
+                                13.0, 10.0, 20.0, 10.0),
                             keyboardType: TextInputType.visiblePassword,
-                            obscure: true,
-                            suffixIcon: const Icon(
-                              Icons.visibility,
-                              color: Colors.black,
-                              size: 16,
+                            obscure: _isConfPassHidden,
+                            suffixIcon: IconButton(
+                              onPressed: () => setState(
+                                () => _isConfPassHidden = !_isConfPassHidden,
+                              ),
+                              icon: _isConfPassHidden
+                                  ? const Icon(
+                                      Icons.visibility,
+                                      color: Colors.black,
+                                      size: 16,
+                                    )
+                                  : const Icon(
+                                      Icons.visibility_off,
+                                      color: Colors.black,
+                                      size: 16,
+                                    ),
                             ),
                           ),
                           const SizedBox(height: 60),
@@ -156,9 +194,10 @@ class CreateUserprofile extends StatelessWidget {
                                 textColor: const Color(0xFFFFFFFF),
                                 press: () {
                                   Navigator.push(
-                                    context, 
-                                    MaterialPageRoute(builder: (context) => const LocationAndSecurityScreen())
-                                  );
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const LocationAndSecurityScreen()));
                                 },
                                 minimumSize: const Size(124, 38),
                                 fontSize: 14,
