@@ -1,4 +1,3 @@
-
 import 'package:animal_crossing_bank/custom_widgets/build_main_btn.dart';
 import 'package:animal_crossing_bank/custom_widgets/build_text_field.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
@@ -6,7 +5,18 @@ import 'package:animal_crossing_bank/pick_card/pick_your_card.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmationScreen extends StatelessWidget {
-  const ConfirmationScreen({Key? key}) : super(key: key);
+  final String? nameHolder;
+  final String? numberHolder;
+  final String? emailHolder;
+  final String? passwordHolder;
+
+  const ConfirmationScreen(
+      {this.nameHolder,
+      this.numberHolder,
+      this.emailHolder,
+      this.passwordHolder,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +58,8 @@ class ConfirmationScreen extends StatelessWidget {
                     const CircleAvatar(
                       radius: 27,
                       backgroundColor: Color(0xFF037F76),
-                      backgroundImage: AssetImage(
-                          'assets/images/user_profile_picture.png'),
+                      backgroundImage:
+                          AssetImage('assets/images/user_profile_picture.png'),
                     ),
                     const SizedBox(width: 35),
                     buildHeadTitle(
@@ -61,30 +71,32 @@ class ConfirmationScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 10),
-                  child: buildTextField(
-                    text: 'Name: Jane Doe',
-                    type: TextInputType.name,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: buildTextField(
-                    text: 'Phone Number: 111–222–3333',
-                    type: TextInputType.phone,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: buildTextField(
-                    text: 'Email: abcd@efg.com',
-                    type: TextInputType.emailAddress,
+                  child: Column(
+                    children: [
+                      buildTextField(
+                        text: 'Name: $nameHolder',
+                        type: TextInputType.name,
+                      ),
+                      buildTextField(
+                        text: 'Phone Number: $numberHolder',
+                        type: TextInputType.phone,
+                      ),
+                      buildTextField(
+                        text: 'Email: $emailHolder',
+                        type: TextInputType.emailAddress,
+                      ),
+                    ],
                   ),
                 ),
                 buildTextField(
-                  text: 'Password:  •••••••••••',
+                  text: 'Password: $passwordHolder',
                   type: TextInputType.visiblePassword,
                   obscureText: true,
-                  suffixIcon: const Icon(Icons.visibility, color: Colors.black, size: 20,),
+                  suffixIcon: const Icon(
+                    Icons.visibility,
+                    color: Colors.black,
+                    size: 20,
+                  ),
                 ),
                 const SizedBox(height: 40),
                 Row(
@@ -92,8 +104,8 @@ class ConfirmationScreen extends StatelessWidget {
                     const CircleAvatar(
                       radius: 27,
                       backgroundColor: Color(0xFF037F76),
-                      backgroundImage: AssetImage(
-                          'assets/images/user_profile_picture.png'),
+                      backgroundImage:
+                          AssetImage('assets/images/user_profile_picture.png'),
                     ),
                     const SizedBox(width: 35),
                     buildHeadTitle(
@@ -107,13 +119,21 @@ class ConfirmationScreen extends StatelessWidget {
                   text: 'Social Security number: ••••••••••••',
                   type: TextInputType.number,
                   obscureText: true,
-                  suffixIcon: const Icon(Icons.visibility, color: Colors.black, size: 20,),
+                  suffixIcon: const Icon(
+                    Icons.visibility,
+                    color: Colors.black,
+                    size: 20,
+                  ),
                 ),
                 buildTextField(
                   text: 'State ID/ License number: •••••••',
                   type: TextInputType.number,
                   obscureText: true,
-                  suffixIcon: const Icon(Icons.visibility, color: Colors.black, size: 20,),
+                  suffixIcon: const Icon(
+                    Icons.visibility,
+                    color: Colors.black,
+                    size: 20,
+                  ),
                 ),
                 const TextField(
                   // controller: ,
@@ -156,8 +176,8 @@ class ConfirmationScreen extends StatelessWidget {
                       press: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const PickYourCard())
-                        );
+                            MaterialPageRoute(
+                                builder: (context) => const PickYourCard()));
                       },
                       minimumSize: const Size(124, 38),
                       fontSize: 14,
@@ -173,6 +193,4 @@ class ConfirmationScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

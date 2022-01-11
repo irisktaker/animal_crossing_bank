@@ -76,3 +76,33 @@ Divider buildDivider({
     color: color,
   );
 }
+
+
+///
+/// Container
+
+Container buildCustomContainerField({
+    required String? text,
+  }) {
+    return Container(
+      // text: 'Name: Jane Doe',
+      width: double.infinity,
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
+      child: Text(
+        text!,
+        style: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          color: Color(0xFF656565),
+        ),
+      ),
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Color(0xFF037F76),
+            width: 3.0,
+          ),
+        ),
+      ),
+    );
+  }

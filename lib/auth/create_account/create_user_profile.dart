@@ -1,3 +1,4 @@
+import 'package:animal_crossing_bank/auth/confirmation%20/confirmation.dart';
 import 'package:animal_crossing_bank/custom_widgets/build_main_btn.dart';
 import 'package:animal_crossing_bank/custom_widgets/build_text_form_field.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
@@ -18,6 +19,7 @@ class CreateUserProfile extends StatefulWidget {
 
 class _CreateUserProfileState extends State<CreateUserProfile> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -26,6 +28,21 @@ class _CreateUserProfileState extends State<CreateUserProfile> {
 
   bool _isPassHidden = true;
   bool _isConfPassHidden = true;
+
+  // send text field values to another screen
+  getItemAndNavigate(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ConfirmationScreen(
+          nameHolder: _fullNameController.text,
+          numberHolder: _phoneNumberController.text,
+          emailHolder: _emailController.text,
+          passwordHolder: _passwordController.text,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -266,6 +283,8 @@ class _CreateUserProfileState extends State<CreateUserProfile> {
                                           ),
                                         ),
                                       );
+
+                                      getItemAndNavigate(context);
 
                                       Navigator.push(
                                         context,

@@ -167,7 +167,7 @@ class LocationAndSecurityScreen extends StatelessWidget {
                             children: [
                               TextButton(
                                 onPressed: (){},
-                                child: const Text('Photoscan State ID/ License',
+                                child: const Text('Photo scan State ID/ License',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.white,
