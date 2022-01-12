@@ -2,7 +2,7 @@ import 'package:animal_crossing_bank/custom_widgets/build_main_btn.dart';
 import 'package:animal_crossing_bank/custom_widgets/build_text_button.dart';
 import 'package:animal_crossing_bank/custom_widgets/build_text_form_field.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
-import 'package:animal_crossing_bank/screens/bottom_navigate_screens/home_page.dart';
+import 'package:animal_crossing_bank/screens/bottom_navigate_screens/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {

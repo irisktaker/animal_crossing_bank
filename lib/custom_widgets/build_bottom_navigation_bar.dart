@@ -1,6 +1,6 @@
 import 'package:animal_crossing_bank/screens/bottom_navigate_screens/atm_map.dart';
 import 'package:animal_crossing_bank/screens/bottom_navigate_screens/check_scan_page.dart';
-import 'package:animal_crossing_bank/screens/bottom_navigate_screens/home_page.dart';
+import 'package:animal_crossing_bank/screens/bottom_navigate_screens/home_page/home_page.dart';
 import 'package:animal_crossing_bank/screens/bottom_navigate_screens/transfer_page.dart';
 import 'package:flutter/material.dart';
 

@@ -30,7 +30,7 @@ class TransferPage extends StatelessWidget {
             const SizedBox(height: 13),
             Container(
               padding: const EdgeInsets.only(
-                  left: 80, right: 20, top: 21, bottom: 22),
+                  left: 70, right: 20, top: 21, bottom: 22),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -75,7 +75,7 @@ class TransferPage extends StatelessWidget {
             const SizedBox(height: 13),
             Container(
               padding: const EdgeInsets.only(
-                  left: 80, right: 20, top: 21, bottom: 22),
+                  left: 70, right: 20, top: 21, bottom: 22),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),

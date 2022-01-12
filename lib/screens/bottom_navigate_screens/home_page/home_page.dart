@@ -1,6 +1,7 @@
 import 'package:animal_crossing_bank/custom_widgets/build_app_bar.dart';
 import 'package:animal_crossing_bank/custom_widgets/build_bottom_navigation_bar.dart';
 import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
+import 'package:animal_crossing_bank/screens/bottom_navigate_screens/home_page/income_page.dart';
 
 import 'package:flutter/material.dart';
 
@@ -286,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            const SizedBox(height: 43),
+            const SizedBox(height: 23),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -327,7 +328,12 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const Text('Current Income &Transactions'),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const IncomeScreen()));
+                  },
                   child: const Text(
                     'See All >',
                     style: TextStyle(color: Color(0xFF024641)),
