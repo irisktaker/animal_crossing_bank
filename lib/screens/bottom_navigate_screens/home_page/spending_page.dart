@@ -76,6 +76,59 @@ class SpendingScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 40),
+            Column(
+              children: [
+                const Text(
+                  '\$ 5,500.00',
+                  style: TextStyle(
+                    fontSize: 24,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'December’s Spending',
+                      style: TextStyle(
+                        fontSize: 21,
+                        letterSpacing: 2,
+                        color: Color(0xFF83C0BC),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_drop_down,
+                      size: 30,
+                      color: Color(0xFF83C0BC),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 25),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    rectangleRow(text: 'd'),
+                    rectangleRow(text: 'w'),
+                    rectangleRow(text: 'm', color: const Color(0xFFBE6E6E)),
+                    rectangleRow(text: 'y'),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 64),
+            Image.asset('assets/images/img_22.png'),
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text('0', style: TextStyle(fontSize: 10)),
+                Text('5', style: TextStyle(fontSize: 10)),
+                Text('15', style: TextStyle(fontSize: 10)),
+                Text('25', style: TextStyle(fontSize: 10)),
+                Text('31', style: TextStyle(fontSize: 10)),
+              ],
+            ),
+            const SizedBox(height: 54),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
               decoration: BoxDecoration(
@@ -142,6 +195,35 @@ class SpendingScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: buildBottomNavigationBar(selectedIndex, context),
+    );
+  }
+
+  Container rectangleRow({
+    Color color = const Color(0xFF9B1F20),
+    required String? text,
+  }) {
+    return Container(
+      width: 71,
+      height: 31,
+      decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(11),
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 5,
+              color: Colors.grey,
+              offset: Offset(0.0, 4.0),
+            ),
+          ]),
+      child: Center(
+        child: Text(
+          text!.toUpperCase(),
+          style: const TextStyle(
+            fontSize: 18,
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 }

@@ -5,6 +5,8 @@ import 'package:animal_crossing_bank/screens/bottom_navigate_screens/home_page/i
 
 import 'package:flutter/material.dart';
 
+import '../../notification_screen.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -54,46 +56,57 @@ class _HomePageState extends State<HomePage> {
                       size: 33,
                     ),
                     SizedBox(width: size.width * 0.05),
-                    SizedBox(
-                      width: 46,
-                      height: 75,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: 7,
-                            left: 3,
-                            child: buildIconImage(
-                              imageURL: 'assets/images/img_3.png',
-                              width: 52,
-                              height: 52,
-                            ),
-                          ),
-                          Positioned(
-                            right: 0,
-                            top: 0,
-                            child: Container(
-                              padding: const EdgeInsets.only(top: 2),
-                              width: 19,
-                              height: 19,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                                border: Border.all(
-                                  color: const Color(0xFF870013),
-                                ),
-                              ),
-                              child: const Text(
-                                '2',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Color(0xFFBF2026),
-                                  fontWeight: FontWeight.bold,
-                                ),
+                    InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder: (c, a1, a2) =>
+                                  const NotificationScreen(),
+                              transitionsBuilder: (c, anim, a2, child) =>
+                                  FadeTransition(opacity: anim, child: child),
+                              transitionDuration:
+                                  const Duration(milliseconds: 300))),
+                      child: SizedBox(
+                        width: 46,
+                        height: 75,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: 7,
+                              left: 3,
+                              child: buildIconImage(
+                                imageURL: 'assets/images/img_3.png',
+                                width: 52,
+                                height: 52,
                               ),
                             ),
-                          ),
-                        ],
+                            Positioned(
+                              right: 0,
+                              top: 0,
+                              child: Container(
+                                padding: const EdgeInsets.only(top: 2),
+                                width: 19,
+                                height: 19,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                  border: Border.all(
+                                    color: const Color(0xFF870013),
+                                  ),
+                                ),
+                                child: const Text(
+                                  '2',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Color(0xFFBF2026),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -331,8 +344,12 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const IncomeScreen()));
+                        PageRouteBuilder(
+                            pageBuilder: (c, a1, a2) => const IncomeScreen(),
+                            transitionsBuilder: (c, anim, a2, child) =>
+                                FadeTransition(opacity: anim, child: child),
+                            transitionDuration:
+                                const Duration(milliseconds: 300)));
                   },
                   child: const Text(
                     'See All >',
