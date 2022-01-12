@@ -1,6 +1,5 @@
 import 'package:animal_crossing_bank/custom_widgets/build_app_bar.dart';
 import 'package:animal_crossing_bank/custom_widgets/build_bottom_navigation_bar.dart';
-import 'package:animal_crossing_bank/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
 class ATMMap extends StatelessWidget {
@@ -11,7 +10,7 @@ class ATMMap extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: Colors.white,
       body: Padding(
         padding:
             const EdgeInsets.only(top: 10, bottom: 15, left: 23, right: 23),

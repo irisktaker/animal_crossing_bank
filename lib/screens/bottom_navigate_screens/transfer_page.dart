@@ -12,7 +12,7 @@ class TransferPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: Colors.white,
       body: Padding(
         padding:
             const EdgeInsets.only(top: 10, bottom: 15, left: 23, right: 23),
@@ -30,7 +30,7 @@ class TransferPage extends StatelessWidget {
             const SizedBox(height: 13),
             Container(
               padding: const EdgeInsets.only(
-                  left: 94, right: 24, top: 21, bottom: 22),
+                  left: 80, right: 20, top: 21, bottom: 22),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -75,7 +75,7 @@ class TransferPage extends StatelessWidget {
             const SizedBox(height: 13),
             Container(
               padding: const EdgeInsets.only(
-                  left: 94, right: 24, top: 21, bottom: 22),
+                  left: 80, right: 20, top: 21, bottom: 22),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
