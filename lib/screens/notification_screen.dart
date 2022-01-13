@@ -38,7 +38,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 const EdgeInsets.only(top: 10, bottom: 15, left: 23, right: 23),
             child: ListView(
               children: [
-                buildAAppBar(size),
+                const BuildAppBar(
+                ).buildAAppBar(context, size),
                 Stack(
                   children: [
                     Row(

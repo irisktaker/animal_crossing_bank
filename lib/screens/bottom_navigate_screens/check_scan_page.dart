@@ -18,7 +18,8 @@ class CheckScanPage extends StatelessWidget {
             const EdgeInsets.only(top: 10, bottom: 15, left: 23, right: 23),
         child: ListView(
           children: [
-            buildAAppBar(size),
+            const BuildAppBar(
+                ).buildAAppBar(context, size),
             buildTitle(text: 'Check Deposit'),
             const SizedBox(height: 32),
             buildTitle(text: 'Scan Front of Check', size: 14),
