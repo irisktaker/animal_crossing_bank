@@ -18,8 +18,7 @@ class CheckScanPage extends StatelessWidget {
             const EdgeInsets.only(top: 10, bottom: 15, left: 23, right: 23),
         child: ListView(
           children: [
-            const BuildAppBar(
-                ).buildAAppBar(context, size),
+            const BuildAppBar().buildAAppBar(context, size),
             buildTitle(text: 'Check Deposit'),
             const SizedBox(height: 32),
             buildTitle(text: 'Scan Front of Check', size: 14),
@@ -89,16 +88,34 @@ class CheckScanPage extends StatelessWidget {
             const SizedBox(height: 22),
             Column(
               children: [
-                Image.asset(
-                  'assets/images/img_16.png',
+                Container(
                   width: 236,
                   height: 90,
+                  padding: const EdgeInsets.only(top: 10),
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(23, 147, 138, 0.64),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Image.asset(
+                    'assets/images/img_25.png',
+                    width: 88,
+                    height: 69,
+                  ),
                 ),
                 const SizedBox(height: 14),
-                Image.asset(
-                  'assets/images/img_16.png',
+                Container(
                   width: 236,
                   height: 90,
+                  padding: const EdgeInsets.only(top: 10),
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(23, 147, 138, 0.64),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Image.asset(
+                    'assets/images/img_25.png',
+                    width: 88,
+                    height: 69,
+                  ),
                 ),
               ],
             ),

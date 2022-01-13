@@ -38,8 +38,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 const EdgeInsets.only(top: 10, bottom: 15, left: 23, right: 23),
             child: ListView(
               children: [
-                const BuildAppBar(
-                ).buildAAppBar(context, size),
+                const BuildAppBar().buildAAppBar(context, size),
                 Stack(
                   children: [
                     Row(
@@ -450,10 +449,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          'assets/images/img_24.png',
-                          width: 25,
-                          height: 25,
+                        InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: Image.asset(
+                            'assets/images/img_24.png',
+                            width: 25,
+                            height: 25,
+                          ),
                         ),
                         const SizedBox(height: 33),
                         Image.asset(

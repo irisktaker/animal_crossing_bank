@@ -45,21 +45,22 @@ class ChatScreen extends StatelessWidget {
                 const SizedBox(width: 15),
                 Container(
                   width: 173,
-                  height: 51,
+                  // height: 51,
                   decoration: BoxDecoration(
                     color: const Color(0x89027f76),
                     borderRadius: BorderRadius.circular(27),
                   ),
                   child: const Padding(
-                    padding: EdgeInsets.only(left: 14, right: 14, top: 9),
+                    padding:
+                        EdgeInsets.only(left: 14, right: 14, top: 9, bottom: 6),
                     child: Text(
-                      'Hi I’m Tom Nook How can I assist you?Hi I’m Tom Nook How can I assist you',
-                      maxLines: 2,
+                      'Hi I’m Tom Nook How can I assist you?',
+                      // maxLines: 2,
                       style: TextStyle(
                         fontSize: 14,
                         backgroundColor: Colors.transparent,
                         color: Colors.white,
-                        overflow: TextOverflow.ellipsis,
+                        // overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ),
@@ -70,16 +71,13 @@ class ChatScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
+        padding: const EdgeInsets.symmetric(vertical: 14),
         child: Row(
           children: [
             Container(
               width: size.width - 100,
-              height: 27,
+              height: 32,
               margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Send message',
@@ -88,10 +86,39 @@ class ChatScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     fontSize: 14,
                     letterSpacing: 1.1,
+                    height: 0.70,
                   ),
-                  border: InputBorder.none,
                   filled: true,
                   fillColor: const Color(0xFF037F76).withOpacity(0.22),
+                  border: InputBorder.none,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide.none,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                  const Color(0xFF037F76),
+                ),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                  ),
+                ),
+              ),
+              child: const Text(
+                'Send',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
                 ),
               ),
             ),
