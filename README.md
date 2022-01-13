@@ -1,6 +1,13 @@
-# animal_crossing_bank
+# New Horizion Banking
 
-A new Flutter project.
+Horizion Banking is a Flutter ux-ui project contains 19 screens.
+
+![alt]('photo/gnome-shell-screenshot-ALGDG1.png')
+![alt]('photo/gnome-shell-screenshot-FU49F1.png')
+![alt]('photo/gnome-shell-screenshot-U5E7F1.png')
+![alt]('photo/Screenshot-20220113132707-484x846.png')
+![alt]('photo/Screenshot-20220113132809-484x846.png')
+![alt]('photo/Screenshot-20220113132835-484x846.png')
 
 ## Getting Started
 
